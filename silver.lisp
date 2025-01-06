@@ -622,7 +622,7 @@
 ;; 67: water-time (if == 10 the boats sunks) (set in the game loop)
 ;; 68: ogban-dead
 ;; 69: <current room>
-;; 70: door-unlocked (to open the door in wizards-lair direction south)
+;; 70: door-unlocked (in wizards-lair)
 
 (defun decode (str)
   "Decode an encoded string."
