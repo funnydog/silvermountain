@@ -43,3 +43,14 @@ The port has been tested successfully with SBCL.
 2. Print the directions through pagination and not directly.
 3. Convert the input to upper case at line 4900.
 4. Use the RESTORE instruction to skip useless loops.
+5. Trim the strings when computing the variable HB.
+
+## Notes
+
+The original program works wonderfully in modern computers but on the
+old microcomputers it was painfully slow: some microcomputers had slow
+BASIC interpreters.
+
+For example the Microsoft BASIC interpreter on MSX computers was
+really slow with loops, while the interpreter of the BBC Micro was way
+faster (at least by looking at some videos on the internet).
