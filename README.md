@@ -44,6 +44,7 @@ The port has been tested successfully with SBCL.
 3. Convert the input to upper case at line 4900.
 4. Use the RESTORE instruction to skip useless loops.
 5. Trim the strings when computing the variable HB.
+6. Don't exit after saving.
 
 ## Notes
 
