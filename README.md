@@ -1,7 +1,7 @@
 # The Mystery of Silver Mountain
 
-The Mystery of Silver Mountain is a textual adventure written in Basic
-Language taken from the book "The Mystery of Silver Mountain" by
+The Mystery of Silver Mountain is a textual adventure written in BASIC
+language taken from the book "The Mystery of Silver Mountain" by
 Usborne.
 
 To complete the adventure you need the illustrations of the book
@@ -10,7 +10,7 @@ know what to examine in a given location.
 
 Fortunately the book is available to download from [Usborne
 Publishing](https://usborne.com/gb/books/computer-and-coding-books) or
-[Backup](https://web.archive.org/web/20200919224315/https://usborne.com/browse-books/features/computer-and-coding-books/).
+[Archive.org](https://web.archive.org/web/20200919224315/https://usborne.com/browse-books/features/computer-and-coding-books/).
 
 ## Instructions
 
