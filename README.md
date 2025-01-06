@@ -14,13 +14,28 @@ Publishing](https://usborne.com/gb/books/computer-and-coding-books) or
 
 ## Instructions
 
-To run the program you need a suitable basic interpreter like GWBasic or BWBasic.
+To run the program you need a suitable basic interpreter like GW-Basic
+or BWBasic.
 
-Use the following command to run it with BWBasic:
+To run the program execute the following command:
 
    ```
    $ bwbasic silver.bas
    ```
+
+## Port to Common Lisp
+
+A port to Common Lisp is also available.
+
+To achieve such goal I de-obfuscated the encoded strings and
+mapped the indices to meaningful symbols.
+
+Therefore reading the lisp code give significant hints to solve the
+adventure.
+
+Please look at the file insights.md for more information.
+
+The port has been tested successfully with SBCL.
 
 ## Changes made to the original
 
