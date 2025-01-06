@@ -624,18 +624,6 @@
 ;; 69: <current room>
 ;; 70: door-unlocked (in wizards-lair)
 
-(defun decode (str)
-  "Decode an encoded string."
-  (map 'string (lambda (c)
-                 (code-char
-                  (let ((cp (char-code c)))
-                    (cond ((and (>= cp 65) (<= cp 90))
-                           (+ 65 (rem (+ (- cp 65) 25) 26)))
-                          ((and (>= cp 97) (<= cp 122))
-                           (+ 97 (rem (+ (- cp 97) 25) 26)))
-                          (t cp)))))
-       str))
-
 ;; get a line with a prompt
 (defun input (prompt)
   (fresh-line)
