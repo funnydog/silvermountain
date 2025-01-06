@@ -2,21 +2,23 @@
 
 Rooms, items, and everything else is referenced by an index.
 
-The room is stored in the R variable and the object in the B variable.
+The room index is stored in the R variable and the item index in the B
+variable.
 
 To ease the check for <location,item>, the pair is stored in the HB
-variable built by concatenation of the two numbers.
+variable built by concatenating the two numbers.
 
-For example location=71 item=3 is stored as HB=713. There is ambiguity
-because <7,13> and <71.3> would be represented by the same HB, however
-the original program seem to avoid these situation.
+For example R=71 and B=3 is stored as HB=713. There is ambiguity
+because <7,13> and <71,3> would be represented by the same HB, however
+the original program seem to avoid these situations.
 
-A better approach would have been HB=loc*100+item.
+A better approach would have been HB=R*100+B because there are less
+than 100 items in total.
 
 ## Tunnels
 
 The directions to exit the maze of tunnels are stored in the G$()
-array: G$(1) when the direction is E, G$(2) when the direction id W.
+array: G$(1) when the direction is E, G$(2) when the direction is W.
 
 ## Rooms by index
 
@@ -103,14 +105,18 @@ array: G$(1) when the direction is E, G$(2) when the direction id W.
 
 ## Items by index
 
-These are the "dynamic" items that the player can place into its
+These are the "dynamic" items that the player can get into its
 inventory.
 
-The location of each index is stored in the C() array, while the F()
-array is set to 1 if the item is hidden.
+The location of each item is stored in the C() array. The item is
+hidden when the F(index) == 1.
 
-The location of the player's pocket has the index 0 and no location is
-represented by the index 81.
+There are two special locations:
+
+ * the location of the player's pocket with index 0
+ * no location with index 81
+
+The index of each item is listed below:
 
 1. coins "coins" "some" white-cottage
 2. sheet "sheet" "a" attic-bedroom
@@ -143,7 +149,10 @@ represented by the index 81.
 
 ## Static Items by index
 
-These are static items, used only for item lookup by the parser.
+These are static items, used only for item lookup by the parser: this
+way the code can refer them by number instead of comparing strings.
+
+The index for each static item is listed below:
 
 29. bed "bed"
 30. cupboard "cupboard"
@@ -206,13 +215,16 @@ These are static items, used only for item lookup by the parser.
 87. old-kiln "old kiln"
 88. mountain-hut "mountain hut"
 
-## Variable meaning by index
+## Array of variables
 
-The variables are stored as integer numbers in the F() array.
+The game's variables are stored in the F() array.
 
-Indices from 1..28 are set to 1 if the item is hidden.
+Each variable is an integer number.
 
-Other indices:
+Indices from 1..28 are used to store if the item is hidden (1) or
+visible (0 default).
+
+The other indices represent the other variables of the game.
 
 29. wearing-boots (invisibility)
 30. using-sheet (for boot or...?)
@@ -254,10 +266,20 @@ Other indices:
 66. webs-cleared (swinging the sword)
 67. water-time (if == 10 the boats sunks) (set in the game loop)
 68. ogban-dead
-69. `current room`
-70. door-unlocked (to open the door in wizards-lair direction south)
+69. `current room` i.e. R, set before saving
+70. door-unlocked (in wizards-lair)
 
 ## Verb Handlers by line number
+
+There are 57 recognized verbs (58 if we also count PLAy which is
+replaced with BLOw).
+
+Many verbs require that the item is in the pocket but other verbs
+ allow any items (like GET).
+
+Also some verbs are marked as usable under the wizard's glare.
+
+Each verb has its own handler at a specific line number listed below:
 
 	800: N
 	800: E
@@ -266,18 +288,18 @@ Other indices:
 	800: U
 	800: D
 	1220: INV
-	1290: GET
-	1290: TAKe
+	1290: GET       (N)
+	1290: TAKe      (N)
 	1470: EXAmine
 	1470: REAd
 	1750: GIVe
 	1890: SAY
-	1960: PICk
+	1960: PICk      (N)
 	1980: WEAr
 	2010: TIE
-	2050: CLImb
+	2050: CLImb     (N)
 	2870: RIG
-	2120: USE
+	2120: USE       (W)
 	2220: OPEn
 	2310: LIGht
 	2380: FILl
@@ -299,21 +321,20 @@ Other indices:
 	2730: DROp
 	2920: EAT
 	2950: MOVe
-	2990: INT
+	2990: INToxicate
 	3010: RINg
 	3050: CUT
-	3070: HOLd
+	3070: HOLd      (NW)
 	2310: BURn
 	2990: POIson
-	3070: SHOw
+	3070: SHOw      (W)
 	3130: UNLock
-	2120: WITh
+	2120: WITh      (W)
 	3190: DRInk
 	1470: COUnt
 	3100: PAY
 	2870: MAKe
 	3150: BREak
-	1290: STEal
-	1290: GATther
-	3170: REFlect
-
+	1290: STEal     (N)
+	1290: GATther   (N)
+	3170: REFlect   (NW)
