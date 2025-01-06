@@ -755,7 +755,7 @@
                       (table-get 'wine-poisoned))
              (table-set 'ogban-dead t))
 
-           ;; unwear the uniform?? (CHECK)
+           ;; grargs go to sleep
            (when (and (eq loc 'banqueting-hall)
                       (eq dir 's))
              (table-set 'grarg-sleeping t)
@@ -927,7 +927,7 @@
                                      '(stone-circle high-pinnacle high-walled-garden)))))
         ((and (eq loc 'banqueting-hall)
               (eq item 'grargs)
-              (table-get 'grarg-sleeping)) ; TODO: double check also this
+              (table-get 'grarg-sleeping))
          "Very ugly!")
         ((and (eq loc 'well-bottom)
               (find item '(walls well-bottom)))
