@@ -1722,7 +1722,7 @@
       (line-loop 0 0 0 0))))
 
 (defun game-loop (&optional (response "Good luck on your quest!"))
-  (terpri)
+  (princ "[2J[H")
   (format t "~40:@<~a~>~%" "Mystery of Silver")
   (format t "~40:@<~a~>~%" "Mountain")
   (princ "========================================")
