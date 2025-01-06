@@ -1,6 +1,6 @@
-# The Mystery of the Silver Mountain
+# The Mystery of Silver Mountain
 
-The Mystery of the Silver Mountain is a textual adventure written in Basic
+The Mystery of Silver Mountain is a textual adventure written in Basic
 Language taken from the book "The Mystery of Silver Mountain" by
 Usborne.
 
