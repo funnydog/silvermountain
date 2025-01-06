@@ -23,6 +23,15 @@ To run the program execute the following command:
    $ bwbasic silver.bas
    ```
 
+## Port to MSX Basic
+
+I just added some initial instructions to set the type of the
+variables, the width of the screen and to turn off the keys.
+
+Also I removed the LTRIM$() function since it's not supported.
+
+Tested with the openmsx emulating a Philips VG-8235 machine.
+
 ## Port to Common Lisp
 
 A port to Common Lisp is also available.
