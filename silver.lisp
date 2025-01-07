@@ -466,7 +466,7 @@
     (apple "apple" "an" small-orchard)))                       ; 28
 
 ;; association list of the static items
-(defparameter *static-items*
+(defparameter *words*
   '((bed "bed")                                                ; 29
     (cupboard "cupboard")                                      ; 30
     (bridge "bridge")                                          ; 31
@@ -558,7 +558,7 @@
                    (t
                     (iterate (cdr lst))))))
     (or (iterate *items*)
-        (iterate *static-items*))))
+        (iterate *words*))))
 
 (defun item-unqualified-name (id)
   (cadr (assoc id *items*)))
