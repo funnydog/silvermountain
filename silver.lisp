@@ -1199,9 +1199,8 @@
            "It has turned to ashes.")
           ((eq item 'matches)
            "You lit them.")
-          ((not (find-item item))
-           "It doesn't burn")
-          (t default))))
+          (t
+           "It doesn't burn."))))
 
 ;; 2380
 (defun fill-handler (loc item default)
