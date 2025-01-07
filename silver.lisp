@@ -1632,13 +1632,12 @@
              alist)))
     (with-open-file (out filename :direction :output :if-exists :supersede)
       (cond (out
-             (let ((alist (acons 'edges (hash-to-alist *edges*)
-                                 (acons 'item-locations (hash-to-alist *item-locations*)
-                                        (acons 'table (hash-to-alist *table*)
-                                               (acons 'current-location *current-location*
-                                                      (acons 'tunnel-forward *tunnel-forward*
-                                                             (acons 'tunnel-backward *tunnel-backward*
-                                                                    nil))))))))
+             (let ((alist `((edges ,@(hash-to-alist *edges*))
+                            (item-locations ,@(hash-to-alist *item-locations*))
+                            (table ,@(hash-to-alist *table*))
+                            (current-location . ,*current-location*)
+                            (tunnel-forward . ,*tunnel-forward*)
+                            (tunnel-backward . ,*tunnel-backward*))))
                (write alist :stream out))
              t)
             (t nil)))))
