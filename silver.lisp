@@ -405,35 +405,6 @@
      (u attic-bedroom)
      (w rustic-village))))
 
-(defun make-map (graph)
-  (flet ((dot-name (exp)
-           (substitute-if #\_
-                          (complement #'alphanumericp)
-                          (prin1-to-string exp))))
-    ;; start
-    (princ "digraph {")
-    (fresh-line)
-
-    ;; nodes
-    (mapc (lambda (node)
-            (format t "~a[label=\"~a\"];~%"
-                    (dot-name (car node))
-                    (cadr node)))
-          graph)
-
-    ;; edges
-    (mapc (lambda (node)
-            (mapc (lambda (edge)
-                    (format t "~a->~a[label=\"~a\"];~%"
-                            (dot-name (car node))
-                            (dot-name (cadr edge))
-                            (car edge)))
-                  (cddr node)))
-          graph)
-
-    ;; end
-    (princ "}")))
-
 ;; association list of the gettable items
 (defparameter *items*
   '((coins "coins" "some" white-cottage :hidden)               ; 1
