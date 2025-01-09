@@ -565,8 +565,11 @@
     ("exit"              exit)))
 
 ;; location functions
+(defun find-location (id)
+  (assoc id *nodes*))
+
 (defun location-name (id)
-  (cadr (assoc id *nodes*)))
+  (cadr (find-location id)))
 
 (defun location-exits (id)
   (gethash id *edges*))
