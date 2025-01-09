@@ -5,8 +5,8 @@
 (defvar *item-locations*   nil "location of the items")
 (defvar *current-location* nil "location id of the player")
 (defvar *table*            nil "hash table with values per id")
-(defvar *tunnel-forward*   nil "from tunnels to stalagmites")
-(defvar *tunnel-backward*  nil "from stalagmites to tunnels")
+(defvar *tunnel-forward*   nil "directions from tunnels to stalagmites")
+(defvar *tunnel-backward*  nil "directions from stalagmites to tunnels")
 
 ;; association list of the locations
 (defparameter *nodes*
