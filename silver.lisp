@@ -1,7 +1,7 @@
 ;; The Mystery of Silver Mountain - Common Lisp version
 ;; from the Usborne book with the same name
 
-(defvar *edges*            nil "links between the locations")
+(defvar *edges*            nil "overriden links between the locations")
 (defvar *item-locations*   nil "location of the items")
 (defvar *current-location* nil "location id of the player")
 (defvar *table*            nil "hash table with values per id")
