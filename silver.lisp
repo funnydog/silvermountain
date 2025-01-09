@@ -676,7 +676,8 @@
   (fresh-line)
   (princ prompt)
   (force-output)
-  (string-trim " " (read-line *standard-input* nil)))
+  (let ((string (read-line *standard-input* nil)))
+    (and string (string-trim " " string))))
 
 ;; tunnels mini game
 ;; TODO: make it asynchronous
