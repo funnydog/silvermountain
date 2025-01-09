@@ -436,135 +436,135 @@
     (stone-of-destiny "stone of destiny" "the" silver-chamber) ; 27
     (apple "apple" "an" small-orchard)))                       ; 28
 
-;; association list of the static items
+;; list of recognized words
 (defparameter *words*
-  '((bed "bed")                                                ; 29
-    (cupboard "cupboard")                                      ; 30
-    (bridge "bridge")                                          ; 31
-    (trees "trees")                                            ; 32
-    (sail "sail")                                              ; 33
-    (kiln "kiln")                                              ; 34
-    (ketch "ketch")                                            ; 35
-    (bricks "bricks")                                          ; 36
-    (windmill "windmill")                                      ; 37
-    (sacks "sacks")                                            ; 38
-    (boar "ogbans boar")                                       ; 39
-    (wheel "wheel")                                            ; 40
-    (pony "pony")                                              ; 41
-    (gravestones "gravestones")                                ; 42
-    (pool "pool")                                              ; 43
-    (gates "gates")                                            ; 44
-    (handle "handle")                                          ; 45
-    (hut "hut")                                                ; 46
-    (vine "vine")                                              ; 47
-    (inscriptions "inscriptions")                              ; 48
-    (troll "troll")                                            ; 49
-    (rubble "rubble")                                          ; 50
-    (hound "hound")                                            ; 51
-    (fountain "fountain")                                      ; 52
-    (circle "circle")                                          ; 53
-    (mosaics "mosaics")                                        ; 54
-    (books "books")                                            ; 55
-    (casks "casks")                                            ; 56
-    (well "well")                                              ; 57
-    (walls "walls")                                            ; 58
-    (rats "rats")                                              ; 59
-    (safe "safe")                                              ; 60
-    (cobwebs "cobwebs")                                        ; 61
-    (coin "coin")                                              ; 62
-    (bell "bell")                                              ; 63
-    (up-silver-plate "up silver plate")                        ; 64
-    (stones "stones")                                          ; 65
-    (kitchens "kitchens")                                      ; 66
-    (goblet "goblet")                                          ; 67
-    (wine "wine")                                              ; 68
-    (grargs "grargs")                                          ; 69
-    (door "door")                                              ; 70
-    (awake "awake")                                            ; 71
-    (guide "guide")                                            ; 72
-    (protect "protect")                                        ; 73
-    (lead "lead")                                              ; 74
-    (help "help")                                              ; 75
-    (chest "chest")                                            ; 76
-    (water "water")                                            ; 77
-    (stables "stables")                                        ; 78
-    (sluice-gates "sluice gates")                              ; 79
-    (pot "pot")                                                ; 80
-    (statue "statue")                                          ; 81
-    (pinnacle "pinnacle")                                      ; 82
-    (music "music")                                            ; 83
-    (magic-words "magic words")                                ; 84
-    (misty-pool "misty pool")                                  ; 85
-    (well-boom "well bottom")                                  ; 86
-    (old-kiln "old kiln")                                      ; 87
-    (mountain-hut "mountain hut")))                            ; 88
+  '(("bed"               bed)                                  ; 29
+    ("cupboard"          cupboard)                             ; 30
+    ("bridge"            bridge)                               ; 31
+    ("trees"             trees)                                ; 32
+    ("sail"              sail)                                 ; 33
+    ("kiln"              kiln)                                 ; 34
+    ("ketch"             ketch)                                ; 35
+    ("bricks"            bricks)                               ; 36
+    ("windmill"          windmill)                             ; 37
+    ("sacks"             sacks)                                ; 38
+    ("ogbans boar"       boar)                                 ; 39
+    ("wheel"             wheel)                                ; 40
+    ("pony"              pony)                                 ; 41
+    ("gravestones"       gravestones)                          ; 42
+    ("pool"              pool)                                 ; 43
+    ("gates"             gates)                                ; 44
+    ("handle"            handle)                               ; 45
+    ("hut"               hut)                                  ; 46
+    ("vine"              vine)                                 ; 47
+    ("inscriptions"      inscriptions)                         ; 48
+    ("troll"             troll)                                ; 49
+    ("rubble"            rubble)                               ; 50
+    ("hound"             hound)                                ; 51
+    ("fountain"          fountain)                             ; 52
+    ("circle"            circle)                               ; 53
+    ("mosaics"           mosaics)                              ; 54
+    ("books"             books)                                ; 55
+    ("casks"             casks)                                ; 56
+    ("well"              well)                                 ; 57
+    ("walls"             walls)                                ; 58
+    ("rats"              rats)                                 ; 59
+    ("safe"              safe)                                 ; 60
+    ("cobwebs"           cobwebs)                              ; 61
+    ("coin"              coin)                                 ; 62
+    ("bell"              bell)                                 ; 63
+    ("up silver plate"   up-silver-plate)                      ; 64
+    ("stones"            stones)                               ; 65
+    ("kitchens"          kitchens)                             ; 66
+    ("goblet"            goblet)                               ; 67
+    ("wine"              wine)                                 ; 68
+    ("grargs"            grargs)                               ; 69
+    ("door"              door)                                 ; 70
+    ("awake"             awake)                                ; 71
+    ("guide"             guide)                                ; 72
+    ("protect"           protect)                              ; 73
+    ("lead"              lead)                                 ; 74
+    ("help"              help)                                 ; 75
+    ("chest"             chest)                                ; 76
+    ("water"             water)                                ; 77
+    ("stables"           stables)                              ; 78
+    ("sluice gates"      sluice-gates)                         ; 79
+    ("pot"               pot)                                  ; 80
+    ("statue"            statue)                               ; 81
+    ("pinnacle"          pinnacle)                             ; 82
+    ("music"             music)                                ; 83
+    ("magic words"       magic-words)                          ; 84
+    ("misty pool"        misty-pool)                           ; 85
+    ("well bottom"       well-boom)                            ; 86
+    ("old kiln"          old-kiln)                             ; 87
+    ("mountain hut"      mountain-hut)))                       ; 88
 
-;; recognized verbs
+;; list of recognized verbs
 (defparameter *verbs*
-  '((n "n")
-    (e "e")
-    (s "s")
-    (w "w")
-    (u "u")
-    (d "d")
-    (inv "inv")
-    (get "get")
-    (tak "tak")
-    (ex "ex")
-    (exa "exa")
-    (examine "examine")
-    (read "read")
-    (give "give")
-    (say "say")
-    (pick "pick")
-    (wear "wear")
-    (tie "tie")
-    (climb "climb")
-    (rig "rig")
-    (use "use")
-    (open "open")
-    (light "light")
-    (fill "fill")
-    (plant "plant")
-    (water "water")
-    (swing "swing")
-    (empty "empty")
-    (enter "enter")
-    (cross "cross")
-    (remove "remove")
-    (feed "feed")
-    (turn "turn")
-    (dive "dive")
-    (bail "bail")
-    (leave "leave")
-    (throw "throw")
-    (insert "insert")
-    (blow "blow")
-    (drop "drop")
-    (eat "eat")
-    (move "move")
-    (intoxicate "intoxicate")
-    (ring "ring")
-    (cut "cut")
-    (hold "hold")
-    (burn "burn")
-    (poison "poison")
-    (show "show")
-    (unlock "unlock")
-    (with "with")
-    (drink "drink")
-    (count "count")
-    (pay "pay")
-    (make "make")
-    (break "break")
-    (steal "steal")
-    (gather "gather")
-    (reflect "reflect")
-    (save "save")
-    (load "load")
-    (exit "exit")))
+  '(("n"                 n)
+    ("e"                 e)
+    ("s"                 s)
+    ("w"                 w)
+    ("u"                 u)
+    ("d"                 d)
+    ("inv"               inv)
+    ("get"               get)
+    ("tak"               get)
+    ("ex"                examine)
+    ("exa"               examine)
+    ("examine"           examine)
+    ("read"              examine)
+    ("give"              give)
+    ("say"               say)
+    ("pick"              pick)
+    ("wear"              wear)
+    ("tie"               tie)
+    ("climb"             climb)
+    ("rig"               blow)
+    ("use"               use)
+    ("open"              open)
+    ("light"             burn)
+    ("fill"              fill)
+    ("plant"             plant)
+    ("water"             water)
+    ("swing"             swing)
+    ("empty"             empty)
+    ("enter"             enter)
+    ("cross"             cross)
+    ("remove"            remove)
+    ("feed"              feed)
+    ("turn"              turn)
+    ("dive"              dive)
+    ("bail"              bail)
+    ("leave"             drop)
+    ("throw"             throw)
+    ("insert"            insert)
+    ("blow"              blow)
+    ("drop"              drop)
+    ("eat"               eat)
+    ("move"              move)
+    ("intoxicate"        poison)
+    ("ring"              ring)
+    ("cut"               cut)
+    ("hold"              show)
+    ("burn"              burn)
+    ("poison"            poison)
+    ("show"              show)
+    ("unlock"            unlock)
+    ("with"              use)
+    ("drink"             drink)
+    ("count"             examine)
+    ("pay"               pay)
+    ("make"              blow)
+    ("break"             break)
+    ("steal"             get)
+    ("gather"            get)
+    ("reflect"           reflect)
+    ("save"              save)
+    ("load"              load)
+    ("exit"              exit)))
 
-;; room functions
+;; location functions
 (defun location-name (id)
   (cadr (assoc id *nodes*)))
 
@@ -585,6 +585,13 @@
   (setf (gethash id *table*) value))
 
 ;; item functions
+(defun search-string (str lst)
+  (cond ((null lst) nil)
+        ((string= (caar lst) str)
+         (cadar lst))
+        (t
+         (search-string str (cdr lst)))))
+
 (defun find-word (str)
   "Find the symbol associated with a word"
   (labels ((iterate (lst)
@@ -594,17 +601,11 @@
                    (t
                     (iterate (cdr lst))))))
     (or (iterate *items*)
-        (iterate *words*))))
+        (search-string str *words*))))
 
 (defun find-verb (str)
   "Find the symbol associated with a verb"
-  (labels ((iterate (lst)
-             (cond ((null lst) lst)
-                   ((string= (cadar lst) str)
-                    (car (car lst)))
-                   (t
-                    (iterate (cdr lst))))))
-    (iterate *verbs*)))
+  (search-string str *verbs*))
 
 (defun item-unqualified-name (id)
   (cadr (assoc id *items*)))
@@ -1568,21 +1569,15 @@
     (d            ,#'go-handler)
     (inv          ,#'inventory-handler)
     (get          ,#'get-handler :not-in-pocket)
-    (tak          ,#'get-handler :not-in-pocket)
-    (ex           ,#'examine-handler)
-    (exa          ,#'examine-handler)
     (examine      ,#'examine-handler)
-    (read         ,#'examine-handler)
     (give         ,#'give-handler)
     (say          ,#'say-handler)
     (pick         ,#'pick-handler :not-in-pocket)
     (wear         ,#'wear-handler)
     (tie          ,#'tie-handler)
     (climb        ,#'climb-handler :not-in-pocket)
-    (rig          ,#'blow-handler)
     (use          ,#'use-handler :wizard)
     (open         ,#'open-handler)
-    (light        ,#'burn-handler)
     (fill         ,#'fill-handler)
     (plant        ,#'plant-handler)
     (water        ,#'water-handler)
@@ -1595,7 +1590,6 @@
     (turn         ,#'turn-handler)
     (dive         ,#'dive-handler)
     (bail         ,#'bail-handler)
-    (leave        ,#'drop-handler)
     (throw        ,#'throw-handler)
     (insert       ,#'insert-handler)
     (blow         ,#'blow-handler)
@@ -1605,19 +1599,13 @@
     (intoxicate   ,#'poison-handler)
     (ring         ,#'ring-handler)
     (cut          ,#'cut-handler)
-    (hold         ,#'show-handler :not-in-pocket :wizard)
     (burn         ,#'burn-handler)
     (poison       ,#'poison-handler)
     (show         ,#'show-handler :wizard)
     (unlock       ,#'unlock-handler)
-    (with         ,#'use-handler :wizard)
     (drink        ,#'drink-handler)
-    (count        ,#'examine-handler)
     (pay          ,#'pay-handler)
-    (make         ,#'blow-handler)
     (break        ,#'break-handler)
-    (steal        ,#'get-handler :not-in-pocket)
-    (gather       ,#'get-handler :not-in-pocket)
     (reflect      ,#'reflect-handler :not-in-pocket :wizard)))
 
 ;; game functions
@@ -1797,11 +1785,11 @@
                 (handler (cadr row))
                 (flags (cddr row))
                 (target (subseq string (if ws (1+ ws) len)))
-                (item (cond ((eq handler #'go-handler) verb)
-                            ((string= target "") nil)
-                            (t
-                             (or (find-word target)
-                                 (find-word (concatenate 'string target "s")))))))
+                (item (or (find-word target)
+                          (find-word (concatenate 'string target "s"))))
+                (item (if (and (eq handler #'go-handler) (not item))
+                          verb
+                          item)))
            (cond ((eq verb 'exit)
                   (princ "Bye..."))
                  ((eq verb 'save)
@@ -1822,6 +1810,8 @@
                   (game-loop "Try something else."))
                  ((and (not verb) (not item))
                   (game-loop (format nil "You cannot ~a." string)))
+                 ((and verb (not handler))
+                  (format t "ERROR: missing handler for verb ~a~%" verb))
                  ((not handler)
                   (game-loop "Try something else."))
                  (t
