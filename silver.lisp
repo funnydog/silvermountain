@@ -1824,18 +1824,39 @@
                   (format t "ERROR: missing handler for verb ~a~%" verb))
                  ((not handler)
                   (game-loop "Try something else."))
+                 ((and (eq *current-location* 'fallen-oak)
+                       (not (table-get 'ghost-freed))
+                       (not (eq verb 'blow)))
+                  (game-loop "The ghost of the Goblin Guardian has got you!"))
                  (t
-                  (let ((message (if item "Pardon?" "I need two words.")))
-                    (cond ((and (not (member :not-in-pocket flags))
-                                (assoc item *items*)
-                                (not (item-in-pocket item)))
-                           (game-loop (format nil "You do not have the ~a." target)))
-                          ((and (eq *current-location* 'wizards-lair)
-                                (not (table-get 'wizard-dead))
-                                (not (member :wizard flags)))
-                           (game-loop "The wizard has you in his glare."))
+                  (let ((message (cond ((and (not (member :not-in-pocket flags))
+                                             (assoc item *items*)
+                                             (not (item-in-pocket item)))
+                                        (format nil "You do not have the ~a." target))
+                                       ((and (eq *current-location* 'wizards-lair)
+                                             (not (table-get 'wizard-dead))
+                                             (not (member :wizard flags)))
+                                        "The wizard has you in his glare.")
+                                       (t
+                                        (funcall handler
+                                                 *current-location*
+                                                 item
+                                                 (if item "Pardon?" "I need two words."))))))
+
+                    (when (eq *current-location* 'rough-water)
+                      (table-set 'water-time (1+ (table-get 'water-time))))
+
+                    (cond ((and (eq *current-location* 'rough-water)
+                                (= (table-get 'water-time) 10))
+                           (table-set 'quest-failed t)
+                           (game-loop "You sank!"))
+                          ((and (eq *current-location* 'fallen-oak)
+                                (not (table-get 'ghost-freed))
+                                (not (item-in-pocket 'reeds)))
+                           (table-set 'quest-failed t)
+                           (game-loop "The ghost of the Goblin Guardian gets you!"))
                           (t
-                           (game-loop (funcall handler *current-location* item message)))))))))))
+                           (game-loop message))))))))))
 
 (defun game-start ()
   (game-init)
