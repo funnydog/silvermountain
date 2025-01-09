@@ -1634,7 +1634,7 @@
           (let ((id (car item))
                 (location (cadddr item))
                 (flags (cddddr item)))
-            (setf (gethash id *item-locations*) location)
+            (set-item-location id location)
             (when (member :hidden flags)
               (item-hide id))))
         *items*)
