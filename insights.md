@@ -243,7 +243,7 @@ The other indices represent the other variables of the game.
 43. door-burned
 44. money (initialized to 4 at the start)
 45. rubble-moved (to pass pile rubble)
-46. hound-distracted to hound
+46. hound-distracted
 47. wine-poisoned
 48. grarg-sleeping
 49. `inside inventory subroutine`
@@ -254,9 +254,9 @@ The other indices represent the other variables of the game.
 54. throne-open
 55. grarg-patrol (approaching)
 56. quest-failed (U R DEAD)
-57. initially set to 58 cobwebby-room (ignore)
-58. initially set to 54 high-pinnacle (ignore)
-59. initially set to 15 high-walled-garden (ignore)
+57. initially set to 58 cobwebby-room (ignored)
+58. initially set to 54 high-pinnacle (ignored)
+59. initially set to 15 high-walled-garden (ignored)
 60. mountain-awoken
 61. towers-fallen
 62. quest-won
