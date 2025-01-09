@@ -794,13 +794,13 @@
            "The door does not open.")
           ((and (eq loc 'row-of-casks)
                 (eq dir 'w)
-                (find dir (mapcar #'car (location-exits loc))))
+                (member dir (mapcar #'car (location-exits loc))))
            (setf *current-location* 'shady-hollow)
            "The passage was steep!")
           (t
            ;; solve the tunnels maze
            (when (and (eq loc 'tunnels)
-                      (find dir '(e w)))
+                      (member dir '(e w)))
              (tunnels dir))
 
            ;; reset the bridge fee
