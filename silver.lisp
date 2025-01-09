@@ -1623,6 +1623,7 @@
 
 ;; game functions
 (defun game-init ()
+  (setf *random-state* (make-random-state t))
   (setf *edges* nil)
   (setf *item-locations* (make-hash-table))
   (setf *table* (make-hash-table))
