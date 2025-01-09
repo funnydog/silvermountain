@@ -572,13 +572,14 @@
   (cadr (find-location id)))
 
 (defun location-exits (id)
-  (gethash id *edges*))
+  (or (cdr (assoc id *edges*))
+      (cddr (find-location id))))
 
 (defun can-go (loc dir)
   (find dir (mapcar #'car (location-exits loc))))
 
 (defun set-location-exits (id exits)
-  (setf (gethash id *edges*) exits))
+  (push (cons id exits) *edges*))
 
 ;; table functions
 (defun table-get (id)
@@ -1618,16 +1619,9 @@
 
 ;; game functions
 (defun game-init ()
-  (setf *edges* (make-hash-table))
+  (setf *edges* nil)
   (setf *item-locations* (make-hash-table))
   (setf *table* (make-hash-table))
-
-  ;; set the edges of each room
-  (mapc (lambda (locpair)
-          (let* ((id (car locpair))
-                 (exits (cddr locpair)))
-            (setf (gethash id *edges*) exits)))
-        *nodes*)
 
   ;; set the locations of the items
   ;; and the visible items
@@ -1673,7 +1667,7 @@
     (handler-case
         (with-open-file (*standard-output* filename :direction :output
                                                     :if-exists :supersede)
-          (writeln (hash-to-alist *edges*))
+          (writeln *edges*)
           (writeln (hash-to-alist *item-locations*))
           (writeln (hash-to-alist *table*))
           (writeln *current-location*)
@@ -1693,7 +1687,7 @@
                  alist)))
     (handler-case
         (with-open-file (*standard-input* filename :direction :input)
-          (hash-from-alist *edges* (read))
+          (setf *edges* (read))
           (hash-from-alist *item-locations* (read))
           (hash-from-alist *table* (read))
           (setf *current-location* (read))
