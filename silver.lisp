@@ -1665,14 +1665,15 @@
                       hash)
              alist)))
     (handler-case
-        (with-open-file (out filename :direction :output :if-exists :supersede)
+        (with-open-file (*standard-output* filename :direction :output
+                                                    :if-exists :supersede)
           (let ((alist `((edges ,@(hash-to-alist *edges*))
                          (item-locations ,@(hash-to-alist *item-locations*))
                          (table ,@(hash-to-alist *table*))
                          (current-location . ,*current-location*)
                          (tunnel-forward . ,*tunnel-forward*)
                          (tunnel-backward . ,*tunnel-backward*))))
-            (write alist :stream out))
+            (write alist))
           t)
       (error (c)
         (format t "An error occurred: ~a.~%" c)
@@ -1687,8 +1688,8 @@
                    alist)
              hash)))
     (handler-case
-        (with-open-file (in filename :direction :input)
-          (let ((alist (read in)))
+        (with-open-file (*standard-input* filename :direction :input)
+          (let ((alist (read)))
             (setf *edges* (alist-to-hash (cdr (assoc 'edges alist))))
             (setf *item-locations* (alist-to-hash (cdr (assoc 'item-locations alist))))
             (setf *table* (alist-to-hash (cdr (assoc 'table alist))))
