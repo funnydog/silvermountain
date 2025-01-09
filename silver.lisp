@@ -1790,7 +1790,8 @@
                           verb
                           item)))
            (cond ((eq verb 'exit)
-                  (princ "Bye..."))
+                  (princ "Bye...")
+                  (terpri))
                  ((eq verb 'save)
                   (princ "Saving...")
                   (fresh-line)
