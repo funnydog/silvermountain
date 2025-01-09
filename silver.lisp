@@ -1675,6 +1675,7 @@
             (write alist :stream out))
           t)
       (error (c)
+        (format t "An error occurred: ~a.~%" c)
         nil))))
 
 (defun game-load (filename)
@@ -1696,6 +1697,7 @@
             (setf *tunnel-backward* (cdr (assoc 'tunnel-backward alist))))
           t)
       (error (c)
+        (format t "An error occurred: ~a.~%" c)
         nil))))
 
 (defun describe-location (loc)
