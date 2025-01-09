@@ -644,7 +644,7 @@
 ;; 32: boar-caught
 ;; 33: pool-empty
 ;; 34: jug-filled
-;; 35: ghost-freed
+;; 35: ghost-free
 ;; 36: <an item by adding a S>
 ;; 37: seeds-planted
 ;; 38: vine-grown
@@ -1449,7 +1449,7 @@
   (cond ((and (eq loc 'fallen-oak)
               (eq item 'reeds)
               (cannot-go loc 'n))
-         (table-set 'ghost-freed t)
+         (table-set 'ghost-free t)
          (set-location-exits loc '((n scree-slope)
                                    (s dark-wood)))
          "The ghost of the goblin guardian is free!")
@@ -1825,7 +1825,7 @@
                  ((not handler)
                   (game-loop "Try something else."))
                  ((and (eq *current-location* 'fallen-oak)
-                       (not (table-get 'ghost-freed))
+                       (not (table-get 'ghost-free))
                        (not (eq verb 'blow)))
                   (game-loop "The ghost of the Goblin Guardian has got you!"))
                  (t
@@ -1851,7 +1851,7 @@
                            (table-set 'quest-failed t)
                            (game-loop "You sank!"))
                           ((and (eq *current-location* 'fallen-oak)
-                                (not (table-get 'ghost-freed))
+                                (not (table-get 'ghost-free))
                                 (not (item-in-pocket 'reeds)))
                            (table-set 'quest-failed t)
                            (game-loop "The ghost of the Goblin Guardian gets you!"))

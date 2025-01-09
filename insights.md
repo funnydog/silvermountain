@@ -232,7 +232,7 @@ The other indices represent the other variables of the game.
 32. boar-caught
 33. pool-empty
 34. jug-filled
-35. ghost-freed
+35. ghost-free
 36. `an item by adding a S`
 37. seeds-planted
 38. vine-grown
