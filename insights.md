@@ -257,7 +257,7 @@ The other indices represent the other variables of the game.
 57. initially set to 58 cobwebby-room (ignore)
 58. initially set to 54 high-pinnacle (ignore)
 59. initially set to 15 high-walled-garden (ignore)
-60. mountain-awaken
+60. mountain-awoken
 61. towers-fallen
 62. quest-won
 63. wizard-dead

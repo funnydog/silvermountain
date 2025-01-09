@@ -669,7 +669,7 @@
 ;; 57: initially set to 58 cobwebby-room (ignore)
 ;; 58: initially set to 54 high-pinnacle (ignore)
 ;; 59: initially set to 15 high-walled-garden (ignore)
-;; 60: mountain-awaken
+;; 60: mountain-awoken
 ;; 61: towers-fallen
 ;; 62: quest-won
 ;; 63: wizard-dead
@@ -1074,17 +1074,17 @@
                (not (item-in-pocket 'stone-of-destiny)))
            "You said it.")
           ((and (eq item 'awake)
-                (not (table-get 'mountain-awaken)))
-           (table-set 'mountain-awaken t)
+                (not (table-get 'mountain-awoken)))
+           (table-set 'mountain-awoken t)
            "The mountain rumbles!")
           ((and (eq item 'guide)
-                (table-get 'mountain-awaken)
+                (table-get 'mountain-awoken)
                 (not (table-get 'towers-fallen)))
            (table-set 'towers-fallen t)
            "Towers fall down!")
           ((and (eq item (nth (table-get 'third-word)
                               '(protect lead help)))
-                (table-get 'mountain-awaken)
+                (table-get 'mountain-awoken)
                 (table-get 'towers-fallen))
            (table-set 'quest-won t)
            default)
