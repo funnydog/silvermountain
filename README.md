@@ -10,7 +10,7 @@ know what to examine in a given location.
 
 Fortunately the book is available to download from [Usborne
 Publishing](https://usborne.com/gb/books/computer-and-coding-books) or
-[Archive.org](https://web.archive.org/web/20200919224315/https://usborne.com/browse-books/features/computer-and-coding-books/).
+[Archive.org](https://web.archive.org/web/20220724171102/https://usborne.com/ca_en/books/computer-and-coding-books).
 
 ## Instructions
 
