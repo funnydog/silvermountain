@@ -64,3 +64,8 @@ BASIC interpreters.
 For example the Microsoft BASIC interpreter on MSX computers was
 really slow with loops, while the interpreter of the BBC Micro was way
 faster (at least by looking at some videos on the internet).
+
+## TODO
+
+Add the descriptions for each location to let the adventure stand on
+its own.
